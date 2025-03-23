@@ -69,6 +69,7 @@ financial_df = pd.read_csv("/mnt/data/finanical_information.csv")
 client_df = pd.read_csv("/mnt/data/industry_client_details.csv")
 payment_df = pd.read_csv("/mnt/data/payment_information.csv")
 subscription_df = pd.read_csv("/mnt/data/subscription_information.csv")
+
 ✅ What Happens:
 
 Libraries are imported.
@@ -85,6 +86,7 @@ financial_df['end_date'] = pd.to_datetime(financial_df['end_date'])
 subscription_df['start_date'] = pd.to_datetime(subscription_df['start_date'])
 subscription_df['end_date'] = pd.to_datetime(subscription_df['end_date'])
 payment_df['payment_date'] = pd.to_datetime(payment_df['payment_date'], errors='coerce')
+
 ✅ What Happens:
 
 Date columns are converted to datetime for easier manipulation.
@@ -101,6 +103,7 @@ blockchain_clients = client_df[client_df['industry'] == 'Block Chain'].shape[0]
 
 print(f"Number of Finance Lending clients: {finance_clients}")
 print(f"Number of Blockchain clients: {blockchain_clients}")
+
 ✅ What Happens:
 
 Counts clients by filtering the industry column.
@@ -132,6 +135,7 @@ plt.show()
 # Industry with highest renewal rate
 top_renewed_industry = renewal_rate.idxmax()
 print(f"The industry with the highest renewal rate is: {top_renewed_industry}")
+
 ✅ What Happens:
 
 Renewed subscriptions are filtered.
@@ -162,6 +166,7 @@ renewed_sub_df['inflation_rate'] = renewed_sub_df['end_date'].apply(get_inflatio
 # Calculate the average inflation rate
 avg_inflation_rate = renewed_sub_df['inflation_rate'].mean()
 print(f"The average inflation rate during subscription renewals is: {avg_inflation_rate:.2f}%")
+
 ✅ What Happens:
 
 Renewed subscriptions are filtered.
@@ -194,6 +199,7 @@ plt.show()
 
 # Display median payments per year
 print(median_payment_per_year)
+
 ✅ What Happens:
 
 Payment data is converted to datetime.
